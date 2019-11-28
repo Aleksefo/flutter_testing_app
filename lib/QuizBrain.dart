@@ -1,6 +1,8 @@
 import 'package:flutter_testing_app/Question.dart';
 
 class QuizBrain {
+  int _questionNumber = 1;
+
   List<Question> _qBank = [
     Question('Some cats are actually allergic to humans', true),
     Question('You can lead a cow down stairs but not up stairs.', false),
@@ -29,11 +31,17 @@ class QuizBrain {
         true),
   ];
 
-  String getQText(int qNumber) {
-    return _qBank[qNumber].questionText;
+  void nextQ() {
+    if (_questionNumber < _qBank.length - 1) {
+      _questionNumber++;
+    }
   }
 
-  bool getQAnswer(int qNumber) {
-    return _qBank[qNumber].questionAnswer;
+  String getQText() {
+    return _qBank[_questionNumber].questionText;
+  }
+
+  bool getQAnswer() {
+    return _qBank[_questionNumber].questionAnswer;
   }
 }
