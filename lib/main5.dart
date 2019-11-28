@@ -44,7 +44,7 @@ class _QuizPageState extends State<QuizPage> {
             padding: EdgeInsets.all(10.0),
             child: Center(
               child: Text(
-                quizBrain.qBank[questionNumber].questionText,
+                quizBrain.getQText(questionNumber),
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   fontSize: 25.0,
@@ -70,8 +70,7 @@ class _QuizPageState extends State<QuizPage> {
               onPressed: () {
                 setState(() {
                   questionNumber++;
-                  bool correctAnswer =
-                      quizBrain.qBank[questionNumber].questionAnswer;
+                  bool correctAnswer = quizBrain.getQAnswer(questionNumber);
                   if (correctAnswer) {
                     scoreKeeper.add(
                       Icon(
